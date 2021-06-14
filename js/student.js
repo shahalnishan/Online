@@ -14,7 +14,7 @@ window.addEventListener('load',()=>{
 	p.on('open', (id)=>{
         console.log("Connected with Id: "+id)
         conn = p.connect(room)
-        getUserMedia({video: true, audio: false}, (stream)=>{
+        getUserMedia({video: true, audio: true}, (stream)=>{
             local_stream = stream;
             camtoggle = true
 			// showvideobtndiv()
