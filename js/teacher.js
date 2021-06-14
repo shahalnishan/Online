@@ -3,11 +3,6 @@ var room
 var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 var local_stream;
 var p
-config: {'iceServers': [
-    { url: 'stun:stun.l.google.com:19302' },
-    { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
-  ]} /* Sample servers, please use appropriate ones */
-});
 var camtoggle = false
 var videodiv = document.getElementById("video-div")
 var messagediv = document.getElementById("message-div")
