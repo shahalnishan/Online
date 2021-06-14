@@ -1,0 +1,117 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body{
+	width: 100%;
+	height: 100vh;
+	background-image: url(../img/room.jpg);
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+video{
+	margin: 100px;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+	padding: 10px;
+	background: #134347;
+}
+
+#container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.buttons{
+	bottom: 0 ;
+	width: 100%;
+	height: 60px;
+	display: block;
+	position: fixed;
+	background-color: silver;
+	color: white;
+	bottom: 0;
+	padding: 10px;
+	margin-left: -8px;
+	text-align: center;
+}
+.btnvideo{
+  background-color: #134347;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 2px;
+  cursor: pointer;
+  margin-left: -2%;
+  margin-top: 0px;
+  border-radius: 20px;
+  position:absolute;
+}
+.fa-video,.fa-video-slash{
+  font-size: 20px;
+}
+.btnmic{
+  background-color: #134347;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 2px;
+  cursor: pointer;
+  align:center;
+  margin-left: -7%;
+  margin-top: 0px;
+  border-radius: 20px;
+  position:absolute;
+}
+.fa-microphone-slash{
+  font-size: 20px;
+}
+.btnend{
+  background-color: #134347;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 2px;
+  cursor: pointer;
+  margin-left: 3%;
+  margin-top: 0px;
+  border-radius: 20px;
+  position:absolute;
+}
+.fa-phone-slash{
+  font-size: 20px;
+}
+
+#popupbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px
+  height:400px;
+  position: fixed;
+  top: 100px;
+  right:0;
+  background-color:#134347;
+  color: white;
+  padding: 20px;
+  border-radius: 7px;
+  visibility: hidden;
+
+}
+
+#popupbox button{
+  margin: 3px;
+  width: 60px;
+  height: 30px;
+  border-radius: 7px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}

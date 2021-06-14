@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Sample</title>
+	<link rel="stylesheet" href="">
+<style type="text/css">
+	#popup{
+		height: 210px;
+		width: 210px;
+		display: flex;
+		border-radius: 5px;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		border: 1px solid black;
+		visibility: hidden;
+	}
+</style>
+
+</head>
+<body>
+	<div id="popup">
+		<h1>Are you attending?</h1>
+		<button onclick="toggleclick()">Confirm</button>
+	</div>
+
+<script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+
+	var popbox = document.getElementById("popup")
+	var clicked = false;
+	var a = []
+	function popup() {
+	  // var min = 2,
+	  //   max = 5;
+	    var rand = 1;
+	  // var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between 5 - 10
+	  console.log('Wait for ' + rand + ' minutes');
+	  alertbox()
+	  setTimeout(popup, rand * 60000);
+	}
+
+
+	function alertbox(){
+		popbox.style.visibility = "visible"
+		setTimeout(function(){
+			popbox.style.visibility = "hidden"
+		},3000)
+		verifypop()
+
+	}
+
+
+	function toggleclick(){
+		clicked = true;
+	}
+
+	function verifypop(){
+		if(clicked){
+			a.push(1)
+			clicked = false;
+		}
+		else{
+			a.push(0)
+		}
+
+		console.log(a)
+	}
+
+	popup()
+
+
+</script>
+</body>
+</html>

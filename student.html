@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Student</title>
+	<link rel="stylesheet" href="./css/student.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+	<div id="container">
+		<video id="rvideo"></video>
+	</div>
+	<div id="popupbox">
+		<h4>Are You Attending?</h4>
+		<button onclick="toggleclick()">Confirm</button>
+	</div>
+		<div  id="buttons" class="buttons">
+			<button id="videobtn" onclick="videotoggle()" class="btnvideo" ><i class="fas fa-video-slash" id="videobtn-font"></i></button>
+			<button id="micbtn" class="btnmic"><i class="fas fa-microphone-slash"></i></button>
+			<button id="endbtn" class="btnend" onclick="location.href='index.html'"><i class="fas fa-phone-slash"></i></button>
+		</div>
+
+
+
+<script type="text/javascript" src="./js/peerjs.min.js"></script>
+<script type="text/javascript" src="./js/student.js"></script>
+<script type="text/javascript" src="./js/popup.js"></script>
+</body>
+</html>
