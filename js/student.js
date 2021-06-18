@@ -88,10 +88,10 @@ function videotoggle(){
 function videoicontoggle(){
     if(camtoggle){
         var videobtnfont = document.getElementById("videobtn-font")
-        videobtnfont.setAttribute("class","fas fa-video")
+        videobtnfont.setAttribute("class","fas fa-video-slash")
     }
     else{
         var videobtnfont = document.getElementById("videobtn-font")
-        videobtnfont.setAttribute("class","fas fa-video-slash")
+        videobtnfont.setAttribute("class","fas fa-video")
     }
 }
