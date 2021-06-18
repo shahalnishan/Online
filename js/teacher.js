@@ -133,3 +133,34 @@ function Export2Word(element, filename = 'report'){
 
     document.body.removeChild(downloadLink);
 }
+function videoicontoggle(){
+    if(camtoggle){
+        var videobtnfont = document.getElementById("videobtn-font")
+        videobtnfont.setAttribute("class","fas fa-video-slash")
+    }
+    else{
+        var videobtnfont = document.getElementById("videobtn-font")
+        videobtnfont.setAttribute("class","fas fa-video")
+    }
+}
+function videotoggle(){
+    if(camtoggle){
+        videoicontoggle()
+        camtoggle = false
+        var tracks = local_stream.getTracks()
+        tracks[0].stop()
+    }
+	else{
+		videoicontoggle()
+            camtoggle = true
+            getUserMedia({video: true, audio: true}, (stream)=>{
+                local_stream = stream;
+                let call = p.call(room,stream)
+                call.on('stream', (stream)=>{
+                    setStream(stream,room);
+                })
+            }, (err)=>{
+                console.log(err)
+            })
+
+    }
