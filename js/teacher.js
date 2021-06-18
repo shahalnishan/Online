@@ -16,7 +16,7 @@ window.addEventListener('load',()=>{
 		p = new Peer(room)
 		 p.on('open',(id)=>{
 		 	console.log('a peer connected with id ->',id)
-		 	getUserMedia({video: true, audio: true},(stream)=>{
+		 	getUserMedia({video: true, audio: false},(stream)=>{
 		 		local_stream = stream
 		 		setStream(stream,name)
 		 		camtoggle = true
@@ -141,27 +141,5 @@ function videoicontoggle(){
     else{
         var videobtnfont = document.getElementById("videobtn-font")
         videobtnfont.setAttribute("class","fas fa-video")
-    }
-}
-function videotoggle(){
-    if(camtoggle){
-        videoicontoggle()
-        camtoggle = false
-        var tracks = local_stream.getTracks()
-        tracks[0].stop()
-    }
-	else{
-		videoicontoggle()
-            camtoggle = true
-            getUserMedia({video: true, audio: true}, (stream)=>{
-                local_stream = stream;
-                let call = p.call(room,stream)
-                call.on('stream', (stream)=>{
-                    setStream(stream,room);
-                })
-            }, (err)=>{
-                console.log(err)
-            })
-
     }
 }

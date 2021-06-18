@@ -14,8 +14,9 @@ window.addEventListener('load',()=>{
 	p.on('open', (id)=>{
         console.log("Connected with Id: "+id)
         conn = p.connect(room)
-        getUserMedia({video: true, audio: true}, (stream)=>{
+        getUserMedia({video: true, audio: false}, (stream)=>{
             local_stream = stream;
+            setLocalStream(local_stream)
             camtoggle = true
 			// showvideobtndiv()
             let call = p.call(room, stream)
@@ -34,7 +35,7 @@ window.addEventListener('load',()=>{
                     zero++;
                 }
             }
-            if(zero>1){
+            if(zero>2){
                 conn.send("Not Attending")
             }
             else{
@@ -59,19 +60,26 @@ function setStream(stream,id){
 	video.play()
 }
 
+function setLocalStream(stream){
+    var lvideo = document.getElementById("lvideo")
+    lvideo.srcObject = stream
+    lvideo.muted = true
+    lvideo.play()
+}
+
 
 function videotoggle(){
     if(camtoggle){
-        videoicontoggle()
+        videoicontoggle()	///changing the icon of video button
         conn.send('Closed Cam')
         camtoggle = false
         var tracks = local_stream.getTracks()
         tracks[0].stop()
     }
     else{
-            videoicontoggle()
+            videoicontoggle() //changing the icon of video button
             camtoggle = true
-            getUserMedia({video: true, audio: false}, (stream)=>{
+            getUserMedia({video: true, audio: true}, (stream)=>{
                 local_stream = stream;
                 let call = p.call(room,stream)
                 call.on('stream', (stream)=>{
