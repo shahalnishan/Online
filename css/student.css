@@ -12,13 +12,23 @@ body{
   background-repeat:   no-repeat;
   background-position: center center;
 }
-video{
+#rvideo{
 	margin: 100px;
 	width: 400px;
 	height: 300px;
 	border: 1px solid black;
 	padding: 10px;
 	background: #134347;
+}
+#lvideo{
+  width: 200px;
+  height: 150px;
+  border: 1px solid black;
+  background: #134347;
+	padding:10px;
+	position: absolute;
+	margin-left: -500px;
+	margin-top: -150px;
 }
 
 #container{
