@@ -4,17 +4,35 @@ var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || nav
 var local_stream;
 var p
 var conn
+var config_2 = {
+	host: 'peerjs.92k.de',
+	port: 443,
+	config: {'iceServers': [
+			{ url: 'stun:stun.l.google.com:19302' },
+			{ url: 'stun:stun1.l.google.com:19302' },
+			{ url: 'stun:stun2.l.google.com:19302' },
+			{ url: 'stun:stun3.l.google.com:19302' },
+			{ url: 'stun:stun4.l.google.com:19302' },
+			{
+			    url: 'turn:numb.viagenie.ca',
+			    credential: 'muazkh',
+			    username: 'webrtc@live.com'
+			}
+		]
+	},
+	debug: 3
+}
 var camtoggle = false
 
 
 window.addEventListener('load',()=>{
 	name = window.location.search.split('&')[0].slice(6)
 	room = window.location.search.split('&')[1].slice(5)
-	p = new Peer(name)
+	p = new Peer(name,config_2)
 	p.on('open', (id)=>{
         console.log("Connected with Id: "+id)
         conn = p.connect(room)
-        getUserMedia({video: true, audio: false}, (stream)=>{
+        getUserMedia({video: true, audio: true}, (stream)=>{
             local_stream = stream;
             setLocalStream(local_stream)
             camtoggle = true
@@ -63,7 +81,6 @@ function setStream(stream,id){
 function setLocalStream(stream){
     var lvideo = document.getElementById("lvideo")
     lvideo.srcObject = stream
-    lvideo.muted = true
     lvideo.play()
 }
 
