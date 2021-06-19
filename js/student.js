@@ -56,7 +56,6 @@ window.addEventListener('blur',()=>{
 function setStream(stream,id){
 	var video = document.getElementById("rvideo")
 	video.srcObject = stream
-	video.muted = true
 	video.play()
 }
 
