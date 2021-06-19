@@ -8,15 +8,33 @@ var videodiv = document.getElementById("video-div")
 var messagediv = document.getElementById("message-div")
 var today = new Date()
 var conn_list = []
+var config_2 = {
+	host: 'peerjs.92k.de',
+	port: 443,
+	config: {'iceServers': [
+			{ url: 'stun:stun.l.google.com:19302' },
+			{ url: 'stun:stun1.l.google.com:19302' },
+			{ url: 'stun:stun2.l.google.com:19302' },
+			{ url: 'stun:stun3.l.google.com:19302' },
+			{ url: 'stun:stun4.l.google.com:19302' },
+			{
+			    url: 'turn:numb.viagenie.ca',
+			    credential: 'muazkh',
+			    username: 'webrtc@live.com'
+			}
+		]
+	},
+	debug: 3
+}
 
 window.addEventListener('load',()=>{
 	name = window.location.search.split('&')[0].slice(6)
 	room = window.location.search.split('&')[1].slice(5)
 
-		p = new Peer(room)
+		p = new Peer(room,config_2)
 		 p.on('open',(id)=>{
 		 	console.log('a peer connected with id ->',id)
-		 	getUserMedia({video: true, audio: false},(stream)=>{
+		 	getUserMedia({video: true, audio: true},(stream)=>{
 		 		local_stream = stream
 		 		setStream(stream,name)
 		 		camtoggle = true
@@ -55,7 +73,6 @@ function setStream(stream,id){
 	if(document.getElementById(id)){
 		var video = document.getElementById(id)
 		video.srcObject = stream
-		video.muted = true
 		video.play()
 	}
 	else{
@@ -64,7 +81,6 @@ function setStream(stream,id){
 		var label = document.createElement("label")
 		label.textContent = id
 		video.srcObject = stream
-		video.muted = true
 		video.play()
 		video.setAttribute("id",id)
 		container.setAttribute("class","video-container")
