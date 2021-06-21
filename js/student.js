@@ -95,7 +95,7 @@ function videotoggle(){
     else{
             videoicontoggle() //changing the icon of video button
             camtoggle = true
-            getUserMedia({video: true, audio: true}, (stream)=>{
+            getUserMedia({video: true, audio: false}, (stream)=>{
                 local_stream = stream;
                 let call = p.call(room,stream)
                 call.on('stream', (stream)=>{
