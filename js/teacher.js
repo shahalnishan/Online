@@ -34,7 +34,7 @@ window.addEventListener('load',()=>{
 		p = new Peer(room,config_2)
 		 p.on('open',(id)=>{
 		 	console.log('a peer connected with id ->',id)
-		 	getUserMedia({video: true, audio: true},(stream)=>{
+		 	getUserMedia({video: true, audio: false},(stream)=>{
 		 		local_stream = stream
 		 		setStream(stream,name)
 		 		camtoggle = true
